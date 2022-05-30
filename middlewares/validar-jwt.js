@@ -13,12 +13,14 @@ const validarJWT = (req, res = response, next ) =>{
 
     try {
         
-        const {uid, nombre, apellido, correo} = jwt.verify(token, process.env.SECRET_JWT_SEED);
+        const {uid, nombre, apellido, telefono, cp, correo} = jwt.verify(token, process.env.SECRET_JWT_SEED);
 
         req.uid = uid;
         req.nombre = nombre;
         req.apellido = apellido;
-        req.correo = correo;
+        req.telefono = telefono;
+        req.cp = cp;
+        req.correo = correo
 
     } catch (error) {
         console.log(error);
